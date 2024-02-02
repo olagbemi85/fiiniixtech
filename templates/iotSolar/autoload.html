@@ -1,0 +1,110 @@
+{% extends "./baseIotSolar.html" %}
+{%  load static %}
+{% block title %}Solar Data Collection{% endblock %}
+{% block content %}
+
+
+<div class="main-wrapper">
+
+    {% include 'iotSolar/navigations/iotNav.html' %}
+    
+    <div class="page-wrapper">
+        <div class="content container-fluid">
+            
+            
+            {% include 'iotSolar/navigations/chatNav.html' %}
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="container-fluid">                 
+
+                        <div class="card card-table flex-fill">
+                            
+                                <div class="card-header">
+                                    <h4 class="card-title float-start">{% now "  jS F Y H:i" %}</h4>
+                                </div>
+                            
+                            <div class="card-body"> 
+                                <div class="table-responsive no-radius">
+                                
+                                    <div id="table-scroll">                    		
+                                        <table class="table table-hover table-center" id="autoload">
+                                            <thread>
+                                                <tr>
+                                                    <th id="days"></th>
+                                                    <th>Value</th>
+                                                    <th>Time</th>
+                                                    <th>Max</th>
+                                                    <th>Time(max.)</th>
+                                                    <th>Min</th>
+                                                    <th>Time(min.)</th>
+                                                </tr>
+                                            </thread>                                            
+                                            <tbody>  
+                                                <tr>
+                                                    <td>Voltage</td>
+                                                    <td id="voltage"></td>
+                                                    <td id="hourly"></td>
+                                                    <td id="maxV"></td>
+                                                    <td id="maxTimeV"></td>
+                                                    <td id="minV"></td>
+                                                    <td id="minTimeV"></td>             
+                                                </tr>
+                                                <tr>
+                                                    <td>Current</td>
+                                                    <td id="currents"></td>
+                                                    <td id="hourly"></td>
+                                                    <td id="maxI"></td>
+                                                    <td id="maxTime"></td>
+                                                    <td id="minI"></td>
+                                                    <td id="minTime"></td>             
+                                                </tr>
+                                                <tr>
+                                                    <td>Power</td>
+                                                    <td id="power"></td>
+                                                    <td id="hourly"></td>
+                                                    <td id="maxP"></td>
+                                                    <td id="maxTime"></td>
+                                                    <td id="minP"></td>
+                                                    <td id="minTime"></td>             
+                                                </tr>
+                                                <tr>
+                                                    <td>Temprature</td>
+                                                    <td id="temp"></td>
+                                                    <td id="hourly"></td>
+                                                    <td id="maxT"></td>
+                                                    <td id="maxTime"></td>
+                                                    <td id="minT"></td>
+                                                    <td id="minTime"></td>             
+                                                </tr>
+                                                <tr>
+                                                    <td>Internsity</td>
+                                                    <td id="intensity"></td>
+                                                    <td id="hourly"></td>
+                                                    <td id="maxIn"></td>
+                                                    <td id="maxTime"></td>
+                                                    <td id="minIn"></td>
+                                                    <td id="minTime"></td>             
+                                                </tr>                                                
+                                            </tbody>
+                                            
+                                            
+                                        </table>
+                                    </div>
+                                </div>
+                            
+                            </div>
+                        </div> 
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<script>
+
+
+  </script>    
+
+{% endblock %}

@@ -1,0 +1,57 @@
+
+{% extends "base.html" %}
+{%  load static %}
+{% block title %}Home {% endblock %}
+{% block content %}
+ <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+
+ <!-- Header -->
+ <div class="container-fluid">
+   <header>
+      <div class="fixed-top row">
+        <!-- Logo -->
+        <div class="col-md-12">
+         {% include 'mainpage/navigations/nav2.html' %}                        	
+         </div>
+         <!-- Nav -->
+         <div class="col-md-12">
+         {% include 'mainpage/navigations/nav1.html' %}                        	
+         </div
+ 	  </div>     
+    </header>        
+   </div>
+   <!--main body-->           
+<main>
+   <hr class="my-4">
+<br /><br /><br /><br />
+<div class="container-md">
+{% for sl in docu %}
+<div>
+   <p>{{ sl.Policy }}</p>
+   <br />
+</div> 
+{% endfor %}
+</div>
+   <!-- Footer -->
+
+   {% include 'mainpage/navigations/footer.html' %}                         
+
+
+</main>			
+
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{%  load static %}
+{% block title %}Home {% endblock %}
+{% block content %}
+ <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+
+ <!-- Header -->
+              <div class="container-fluid">
+                <header>
+                  <div class="fixed-top row">
+                        <!-- Logo -->
+                        <div class="col-md-12">
+                        {% include 'mainpage/navigations/nav2.html' %}                        	
+                        </div>
+                        <!-- Nav -->
+                        <div class="col-md-12">
+                        {% include 'mainpage/navigations/nav1.html' %}                        	
+                        </div>
+
+                  </div>
+                </header>        
+             </div>
+                  <br /><br />
+             
+                   
+  <!--main body-->           
+<main>
+<br />
+<div class='container'>
+  <div class='row'>
+<div class='col-12'>
+        <div class="album py-5 bg-light">
+            <!--<div class="container">-->
+
+                <div class="pb-3 h5">All Services</div>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
+
+                    {% for s in servs %}
+
+                    <div class="col">
+                        <div class="card">
+                          <div>
+                            <img class="img-fluid contain" alt="Responsive image" style="width:400px;height:400px" src="{{ s.icon.url }}">
+                          </div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <a class="text-dark text-decoration-none" href="{{ s.get_absolute_url }}">
+                                        {{ s.title }}
+                                    </a>
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                 <a href="{{ service.get_absolute_url }}">   
+                                    <button><small class="text-muted">Learn more</small></button>
+                                 </a>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+        </div>
+    </div>
+  </div>
+  </div>
+  <!-- Footer -->
+ 
+        {% include 'mainpage/navigations/footer.html' %}                         
+
+
+	</main>			
+
+					<!-- Features -->
+
+
+{% endblock %}

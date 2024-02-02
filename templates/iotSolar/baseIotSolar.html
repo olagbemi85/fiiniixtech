@@ -1,0 +1,45 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>fiiniix Tech</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="{% static 'assets/css/feathericon.min.css' %}" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="{% static 'assets/plugins/morris/morris.css' %}" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" rel="stylesheet" type="text/css">
+
+    <script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+    
+    <script src="{% static 'assets/js/myajax.js' %}"></script>
+   
+</head>
+
+<body>
+       
+            {% block content %}
+
+            {% endblock %}
+      
+    <script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+
+    <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+            
+    <script src="{% static 'assets/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+            
+    <script src="{% static 'assets/js/script.js' %}"></script>    
+    <script src="{% static 'assets/js/chart.js@2.8.0' %}"></script>    
+
+    <script src="{% static 'js/form-validation.js' %}"></script>
+  
+    </script>
+</body>
+</html>

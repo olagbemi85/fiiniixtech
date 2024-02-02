@@ -1,0 +1,124 @@
+{% extends "./base_power_system.html" %}
+{%  load static %}
+{% block title %}SPS(mini SCADA){% endblock %}  <!-- Smart Power System -->
+{% block content %}
+
+
+<!-- Page Loader -->
+{% include 'partials/_messages.html' %}
+{% include './component/loader.html' %}
+<!-- #END# Page Loader -->
+ <!-- Top Bar -->
+{% include './component/nav.html' %}
+ <!-- End Top Bar -->
+ <!-- Sidebar -->
+ {% include './component/sidebar.html' %}
+ <!-- End Sidebar -->
+ <!-- pagecontent -->
+ 
+<section class="content">
+    <div class="container-fluid">   
+
+        <div class="row clearfix">
+            <!-- Task Info -->
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>Authorize Personnel</h2>
+                        <ul class="header-dropdown m-r--5">
+                            <li class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <i class="material-icons">more_vert</i>
+                                </a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="javascript:void(0);">Action</a></li>
+                                    <li><a href="javascript:void(0);">Another action</a></li>
+                                    <li><a href="javascript:void(0);">Something else here</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body">
+                        <div class="table-responsive">
+                            <table class="table table-hover dashboard-task-infos">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Position</th>
+                                        <th>Region</th>
+                                        <th>Area Office</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Task A</td>
+                                        <td><span class="label bg-green">Doing</span></td>
+                                        <td>John Doe</td>
+                                        <td>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-green" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" style="width: 62%"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Task B</td>
+                                        <td><span class="label bg-blue">To Do</span></td>
+                                        <td>John Doe</td>
+                                        <td>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-blue" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <!-- Chart Samples -->
+        <div class="block-header">
+            <h2>CHART SAMPLES</h2>
+        </div>
+        <div class="row">
+            {%for s in station%}
+            <script src="{% static 'js/iotPowerSystem/power.js' %}"></script>
+            
+            
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box-4">
+                    <!--<div class="icon">
+                        <div class="chart chart-bar" data-chartcolor="yellow">6,8,6,8,10</div>
+                    </div>-->
+                    <div class="content">
+                        <div class="text" data-chartcolor="yellow">{{s.code}}</div>
+                        <div class="text"><a class="text" href='{% url "smartpower:sps_page" s.code %}'>{{s.station_name}}</a></div>
+                        <div class="text"><a class="text" href="{{ s.get_absolute_url }}">Station Detail</a></div>
+                        <div class="text">{{s.area_office}}</div>
+                        <div id="{{s.code}}"  data-url="{% url 'smartpower:xterpower' s.code %}">
+                            <div id = "getLoad"></div>
+                            <div class="progress">
+                                <div class="progress-bar bg-blue progresS" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="text"><h4 class="tx"></h4></div>     
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    
+    </div>
+</section>
+
+
+
+{% endblock %}

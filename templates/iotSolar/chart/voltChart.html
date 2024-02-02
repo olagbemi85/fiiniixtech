@@ -1,0 +1,120 @@
+{% extends "../baseIotSolar.html" %}
+{%  load static %}
+{% block title %}Solar Data Collection{% endblock %}
+{% block content %}
+
+
+<div class="main-wrapper">
+
+    {% include 'iotSolar/navigations/iotNav.html' %}
+    
+    <div class="page-wrapper">
+        <div class="content container-fluid">
+            <div class="row">
+                <div class="col-xl-4 col-sm-4 col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="dash-widget-header">
+                                <span class="dash-widget-icon bg-primary">
+                                    <i class="fe fe-users"></i>
+                                </span>
+                                <div id ="maxP">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-sm-4 col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="dash-widget-header">
+                                <span class="dash-widget-icon bg-warning">
+                                    <i class="fe fe-phone"></i>
+                                </span>
+                                <div id="voltage2">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-sm-4 col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="dash-widget-header">
+                                <span class="dash-widget-icon bg-danger">
+                                    <i class="fe fe-comments"></i>
+                                </span>
+                                <div class="dash-count">
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="container-fluid">                 
+
+                        <div style="height:50%;" class="card card-table flex-fill">
+                            
+                                <div class="card-header">
+                                    <h4 class="card-title float-start">{% now "  jS F Y H:i" %}</h4>
+                                </div>
+                            
+                            <div class="card-body"> 
+                                <canvas id="voltageChartt" data-url="{% url 'iotSolar_proj:voltageChartt' %}"></canvas>
+                            </div>
+                        </div> 
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<script>
+
+    $(function () {
+
+      var $voltageChartt = $("#voltageChartt");
+      $.ajax({
+        url: $voltageChartt.data("url"),
+        success: function (data) {
+
+          var ctx = $voltageChartt[0].getContext("2d");
+
+          new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: data.labels,
+              datasets: [{
+                label: 'voltage chart',
+                backgroundColor: 'blue',
+                data: data.data
+              }]          
+            },
+            options: {
+              responsive: true,
+              legend: {
+                position: 'top',
+              },
+              title: {
+                display: true,
+                text: 'voltage Chart'
+              }
+            }
+          });           
+
+        }
+      });
+
+    });
+
+  </script>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{%  load static %}
+{% block content %}
+
+
+     <!-- Header -->
+                <div class="container-fluid">
+                    <header>
+                        <div class="fixed-top row">
+                        <!-- Logo -->
+                        {% include 'mainpage/navigations/nav2.html' %}
+                        <!-- Nav -->
+  
+                  </div><br /><br /><br /><br /><br /><br />
+                </header>        
+             </div>
+
+  <div class="container-fluid">
+    <div class="main-wrapper login-body">
+        <div class="login-wrapper">
+            <div class="container">
+                <div class="loginbox">
+                    <div class="login-right">
+                        <div class="login-right-wrap">
+                        <h1>Login</h1>
+                        <p class="account-subtitle"></p>
+                        
+                        <form action="{% url 'authentication:userlogin' %}" method="post">
+                          {% include 'partials/_messages.html' %}
+                          {% csrf_token %}
+                            <div class="form-group">
+                              <input class="form-control" type="text" placeholder="email" name="email">
+                            </div>
+                            <div class="form-group">
+                              <input class="form-control" type="Password" name="password" id="password" placeholder="Password">
+                              <div>
+                                <small class="float-right py-3 showHide" onclick=""><span id='togglText'>SHOW</span></small>
+                             </div>
+                            </div>
+                            <div class="form-group">
+                              <button class="btn btn-primary btn-block" type="submit" name="" value="Login">Login</button>
+                            </div>
+                        </form>
+
+                        <div class="text-center forgotpass"><a href="forgot-password.html">Forgot Password?</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

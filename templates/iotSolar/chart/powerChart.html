@@ -1,0 +1,75 @@
+{% extends "../baseIotSolar.html" %}
+{%  load static %}
+{% block title %}Solar Data Collection{% endblock %}
+{% block content %}
+
+
+<div class="main-wrapper">
+
+    {% include 'iotSolar/navigations/iotNav.html' %}
+    
+    <div class="page-wrapper">
+        <div class="content container-fluid">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="container-fluid">                 
+
+                        <div style="height:50%;" class="card card-table flex-fill">
+                            
+                                <div class="card-header">
+                                    <h4 class="card-title float-start">{% now "  jS F Y H:i" %}</h4>
+                                </div>
+                            
+                            <div class="card-body"> 
+                                <canvas id="powerChartt" data-url="{% url 'iotSolar_proj:powerChartt' %}"></canvas>
+                            </div>
+                        </div> 
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<script>
+
+    $(function () {
+
+    var $powerChartt = $("#powerChartt");
+    $.ajax({
+      url: $powerChartt.data("url"),
+      success: function (data) {
+
+        var ctx = $powerChartt[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'power chart',
+              backgroundColor: 'blue',
+              data: data.data
+            }]          
+          },
+          options: {
+            responsive: true,
+            legend: {
+              position: 'top',
+            },
+            title: {
+              display: true,
+              text: 'power Chart'
+            }
+          }
+        });					  
+
+      }
+    });
+
+  });
+
+</script>
+
+{% endblock %}

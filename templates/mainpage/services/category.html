@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{%  load static %}
+{% block title %}
+{% if sercategory %}{{ sercategory.name }}{% else %}services{% endif %}
+{% endblock %}
+{% block content %}
+
+ <div class="container-fluid">
+                <header>
+                  <div class="fixed-top row">
+                        <!-- Logo -->
+                        <div class="col-md-12">
+                        {% include 'mainpage/navigations/nav2.html' %}                           
+                        </div>
+                        <!-- Nav -->
+                        <div class="col-md-12">
+                        {% include 'mainpage/navigations/nav1.html' %}                           
+                        </div>
+
+                  </div>
+                </header>        
+             </div>
+                  <br /><br />
+<main>
+
+        <div class="album py-5 bg-light">
+
+
+
+            <div class="container">
+
+                <div class="pb-3 h5">All Services</div>
+                <div class="pb-3 h5">{{sercategory.name|title}}</div>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
+
+                    {% for service in services %}
+                  
+                    <div class="col">
+                        <div class="card">
+                          <div> 
+ <!--The CSS object-fit property is used to specify how an <img> or <video> should be resized to fit its container. which are contain, none, scale-down, fill, cover. it is in the frame.css in this project--> 
+                            <img class="img-fluid img-responsive contain" style="width:200px;height:200px" alt="Responsive image" src="{{ service.icon.url }}"> 
+                          </div>
+                         <!-- <div>
+                          <img class="contain" src="paris.jpg" alt="Paris" style="width:200px;height:400px">
+                          </div> -->
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <a class="text-dark text-decoration-none" href="{{ service.get_absolute_url }}">
+                                        {{ service.title }}
+                                    </a>
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                 <a href="{{ service.get_absolute_url }}">   
+                                    <button><small class="text-muted">Learn more</small></button>
+                                 </a>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+<!-- footer -->
+
+        {% include 'mainpage/navigations/footer.html' %}                         
+
+
+</main>
+{% endblock %}

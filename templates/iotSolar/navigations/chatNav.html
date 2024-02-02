@@ -1,0 +1,183 @@
+{%  load static %}
+
+
+<div class="row" style="color:blue;text-align:center; height:30%">
+    <div class="col-xl-4 col-sm-4 col-12">
+        <div class="card">
+            <div class="card-body">
+                <a href="{% url 'iotSolar_proj:voltchart' %}">
+                    <div class="dash-widget-header">
+                        <div class="row">
+                            <div class="col-9">
+                                <canvas id="powerChartt" data-url="{% url 'iotSolar_proj:powerChartt' %}"></canvas>
+                            </div>
+                            <div class='col-3'>       
+                                    <div class="dash-count">
+                                        
+                                        <p class="count-title">{{num.power}}</p>
+                                    </div>
+                                </div>        
+                        </div>            
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-sm-4 col-12">
+        <div class="card">
+            <div class="card-body">
+                <a href="{% url 'iotSolar_proj:voltchart' %}">
+                    <div class="dash-widget-header">
+                        <div class="row">
+                            <div class="col-9">
+                                        <canvas id="voltageChartt" data-url="{% url 'iotSolar_proj:voltageChartt' %}"></canvas>
+                            </div>
+                            <div class='col-3'>       
+                                    <div class="dash-count">
+                                        
+                                        <p class="count-title">{{num.voltage}}</p>
+                                    </div>
+                                </div>        
+                        </div>            
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-sm-4 col-12">
+        <div class="card">
+            <div class="card-body">
+                <a href="{% url 'iotSolar_proj:voltchart' %}">
+                    <div class="dash-widget-header">
+                        <div class="row">
+                            <div class="col-9">
+                                <canvas id="intenChartt" data-url="{% url 'iotSolar_proj:intenChartt' %}"></canvas>
+                            </div>
+                            <div class='col-3'>       
+                                    <div class="dash-count">
+                                        <p class="count-title">intensity</p>
+                                        <p class="count-title">{{num.intensity}}</p>
+                                    </div>
+                                </div>        
+                        </div>            
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    $(function () {
+
+        var $powerChartt = $("#powerChartt");
+        $.ajax({
+          url: $powerChartt.data("url"),
+          success: function (data) {
+    
+            var ctx = $powerChartt[0].getContext("2d");
+    
+            new Chart(ctx, {
+              type: 'line',
+              data: {
+                labels: data.labels,
+                datasets: [{
+                  label: 'power chart',
+                  backgroundColor: 'blue',
+                  data: data.data
+                }]          
+              },
+              options: {
+                responsive: true,
+                legend: {
+                  position: 'top',
+                },
+                title: {
+                  display: true,
+                  text: 'power Chart'
+                }
+              }
+            });					  
+    
+          }
+        });
+    
+      });
+
+
+  
+  $(function () {
+
+    var $voltageChartt = $("#voltageChartt");
+    $.ajax({
+      url: $voltageChartt.data("url"),
+      success: function (data) {
+
+        var ctx = $voltageChartt[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'voltage chart',
+              backgroundColor: 'blue',
+              data: data.data
+            }]          
+          },
+          options: {
+            responsive: true,
+            legend: {
+              position: 'top',
+            },
+            title: {
+              display: true,
+              text: 'voltage Chart'
+            }
+          }
+        });           
+
+      }
+    });
+
+  });
+
+
+
+  $(function () {
+
+    var $intenChartt = $("#intenChartt");
+    $.ajax({
+      url: $intenChartt.data("url"),
+      success: function (data) {
+
+        var ctx = $intenChartt[0].getContext("2d");
+
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'irradiation chart',
+              backgroundColor: 'blue',
+              data: data.data
+            }]          
+          },
+          options: {
+            responsive: true,
+            legend: {
+              position: 'top',
+            },
+            title: {
+              display: true,
+              text: 'irradiation Chart'
+            }
+          }
+        });					  
+
+      }
+    });
+
+  });
+
+</script>

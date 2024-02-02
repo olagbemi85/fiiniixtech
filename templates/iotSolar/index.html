@@ -1,0 +1,84 @@
+{% extends "./baseIotSolar.html" %}
+{%  load static %}
+{% block title %}Solar Data Collection{% endblock %}
+{% block content %}
+
+
+<div class="main-wrapper">
+
+    {% include 'iotSolar/navigations/iotNav.html' %}
+    
+    <div class="page-wrapper">
+        <div class="content container-fluid">
+    
+            {% include 'iotSolar/navigations/chatNav.html' %}
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="container-fluid">                 
+
+                        <div class="card card-table flex-fill">
+                            
+                                <div class="card-header">
+                                    <h4 class="card-title float-start">{% now "  jS F Y H:i" %}</h4>
+                                    <div class="table-search float-end">
+                                        <input type="text" class="form-control" placeholder="Search">
+                                        <button class="btn" type="submit"><i class="fa fa-search"></i></button>
+                                    </div>
+                                </div>
+                            
+                            <div class="card-body"> 
+                                <div class="table-responsive no-radius">
+                                
+                                    <div id="table-scroll">  
+                                                    
+                                            <table class="table table-hover table-center" id='autoload'>
+                                                <tr>
+                                                
+                                                    <th>Time</th>
+                                                    <th>Voltage</th>
+                                                    <th>Current</th>
+                                                    <th>power</th>
+                                                    <th>temp</th>
+                                                    <th>intensity</th>
+                                                    <th>Day</th>
+                                                </tr>
+                                                {% for n in num %}  
+                                                <tr>
+                                                
+                                                    <td>{{ n.hourly }}</td>
+                                                    <td>{{ n.voltage }}</td>
+                                                    <td>{{ n.currents  }}</td>
+                                                    <td>{{ n.power }}</td>
+                                                    <td>{{ n.temp }}</td>
+                                                    <td>{{ n.intensity }}</td>	                        	
+                                                    <td>{{ n.days }}</td>	                        	
+                                                </tr>
+                                                {% endfor %}
+                                            </table> 
+                                        
+                                </div>
+                            
+                            </div>
+                        </div> 
+                    </div>
+                                    
+                                    <!--<div>
+                                        <h4> {{num.voltage}} </h4>
+                                        <h4> {{num.currents}} </h4>
+                                        <h4> {{num.days}} </h4>
+                                        <h4> {{num.intensity}} </h4>
+                                        <h4> {{num.hourly}} </h4>
+                                        <h4> {{num.temp}} </h4>
+                                        <h4> {{num.power}} </h4>
+                                    </div>-->
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+    
+
+{% endblock %}

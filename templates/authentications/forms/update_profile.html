@@ -1,0 +1,89 @@
+
+
+{% extends "base.html" %}
+{%  load static %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/style3.css' %}" type="text/css">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      .hideIt{
+        display:none !important;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+      <!-- loader  -->
+<!-- Header -->
+<div class="container-fluid">
+  <header>
+    <div class="fixed-top row">
+      <!-- Logo -->
+      <div class="col-md-12">
+        {% include 'mainpage/navigations/nav2.html' %}
+      </div>
+      <!-- Nav -->
+      <div class="col-md-12">
+        {% include 'mainpage/navigations/nav1.html' %}
+      </div>
+
+    </div>
+  </header>
+</div>
+<br />
+<br />
+<br />
+<div class="container-fluid">
+    <div class="main-wrapper login-body">
+        <div class="login-wrapper">
+            <div class="container">
+                <div class="loginbox">
+                    <div class="login-right">
+                        <div class="login-right-wrap">
+                        <h3 class='profile-headers'>Edit Profile</h3>
+                        <p class="account-subtitle"></p>
+                        
+                      {%comment%} <form action="{% url 'authentication:update' user.id %}" method="post" enctype="multipart/form-data">
+                        user = User.objects.create_user(username=username, email=email, first_name=firstName, last_name=lastName)
+                        {%endcomment%}
+                         <form action="{% url 'authentication:edit-profile' %}" method="post" enctype="multipart/form-data"> 
+                          {% include 'partials/_messages.html' %}
+                           <br /><p>
+                            Email: {{pp.email}}
+                          </p><br />    
+                          {% csrf_token %}
+                    
+                            {{user_form.as_p}}
+
+                              <br />
+                            <div class="read-more">
+                              <button  type="submit" name="">Edit Profile</button>
+                            </div>                                
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+   <!-- footer -->
+   {% include 'mainpage/navigations/footer.html' %}
+   <!-- end footer -->    
+
+   
+{% endblock content %}
