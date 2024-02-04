@@ -27,27 +27,42 @@ class Category(models.Model):
 class ProductManager(models.Manager):
 	def get_queryset(self):
 		return super(ProductManager, self).get_queryset().filter(is_active=True)
+	
+
+class ProductOwnCompany(models.Model):
+	company_name = models.CharField(max_length=255, default='admin')
+	state_where_available = models.CharField(max_length=30)
+	lga_wheree_available = models.CharField(max_length = 30)
+	company_selling_contact = models.CharField(max_length=255, default='admin')
+	company_alt_phonenumber = models.CharField(max_length=255, default='admin')
+	company_email = models.EmailField()
+	company_address = models.Model(max_length=255)
+
+	def __str__(self):
+		return self.company_name
+	
+	def get_absolute_url(self):
+		pass
+		#return reverse('shop:company_sell')
+
 
 class Product(models.Model):
 	category = models.ForeignKey(Category, related_name='product', on_delete=models.CASCADE)
-	created_by = models.ForeignKey(User, related_name='product_creator', on_delete=models.CASCADE)
+	own_by = models.ForeignKey(ProductOwnCompany, related_name='product_creator', on_delete=models.CASCADE)
 	product_type = models.CharField(max_length=255)
 	model = models.CharField(max_length=255)
 	capacity = models.CharField(max_length=255)
-	title = models.CharField(max_length=255)
 	name_of_manufaturer = models.CharField(max_length=255)
 	Country_of_manufature = CountryField()
 	year_of_production = models.DateTimeField()
-	author = models.CharField(max_length=255, default='admin')
 	description = models.TextField(blank=True)
 	description2 = models.TextField(blank=True)
 	image = models.ImageField(upload_to='shop/products/', default='Images/default.jpg')
 	image2 = models.ImageField(upload_to='shop/products/', blank=True)
 	image3 = models.ImageField(upload_to='shop/products/', blank=True)
-	slug = models.SlugField(max_length=255)
-	price = models.DecimalField(max_digits=4, decimal_places=2)
-	#puchase_price = models.DecimalField(max_digits=12,  decimal_places=2)
-	sell_price = models.DecimalField(max_digits=12,  decimal_places=2)
+	price = models.DecimalField(max_digits=16, decimal_places=2)
+	puchase_price = models.DecimalField(max_digits=16,  decimal_places=2)
+	sell_price = models.DecimalField(max_digits=16,  decimal_places=2)
 	in_stock = models.BooleanField(default=True)
 	is_active= models.BooleanField(default=True)
 	created = models.DateTimeField(auto_now_add= True)
@@ -67,3 +82,8 @@ class Product(models.Model):
 
 	def __str__(self):
 		return self.title
+
+
+
+
+
