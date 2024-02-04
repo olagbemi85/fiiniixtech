@@ -10,7 +10,8 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <ul class="navbar-nav justify-content-end mb-2 mb-lg-0">
 
 
           {% if user.is_authenticated %}
@@ -50,24 +51,7 @@
           </li>
         {% endif %}
       </ul>
-      <div class="nav-item"> <a class="nav-link active" style="color:white !important;" aria-current="page" href="{% url 'shop:product' %}">Shop</a> </div>
-        <div class="hideIt">
-            <div class="nav-item">
-              <a href="{% url "basket:basket_summary" %}" class="nav-link">
-                {% with total_qty=basket|length %}
-                <div di="basket-qty" class="d-inline-flex">
-                  {% if total_qty > 0 %}
-                    {{ total_qty}}
-                  {% else %}
-                      0
-                  {% endif %}
-                </div>
-                {% endwith %}    
-                <img style="width:90; height:40" src="{% static 'Images/icon/cart.svg' %}" alt="My Orders" />
-              </a>
-            </div>
-        </div>
-      </div>
+      
     </div>
   </nav>
 </div>

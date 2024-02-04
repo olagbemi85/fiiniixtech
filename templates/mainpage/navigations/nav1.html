@@ -1,4 +1,4 @@
-
+{% load static %}
                   <div class="col-md-12">
                           <nav class="navbar navbar-expand-lg navbar-light bg-light">
                           <div class="container-fluid">
@@ -50,6 +50,24 @@
                                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                                 <button class="btn btn-outline-success" type="submit">Search</button>
                               </form>-->
+                            </div>
+                            <div class="nav-item"> <a class="nav-link active" style="color:rgb(0, 0, 0) !important;" aria-current="page" href="{% url 'shop:product' %}">Shop</a> </div>
+                              <div class="hideIt">
+                                  <div class="nav-item">
+                                    <a href="{% url 'basket:basket_summary' %}" class="nav-link" style="color:black !important">
+                                      {% with total_qty=basket|length %}
+                                      <div di="basket-qty" class="d-inline-flex">
+                                        {% if total_qty > 0 %}
+                                          {{ total_qty}}
+                                        {% else %}
+                                            0
+                                        {% endif %}
+                                      </div>
+                                      {% endwith %}    
+                                      <img style="width:90; height:40" src="{% static 'Images/icon/cart.svg' %}" alt="My Orders" />
+                                    </a>
+                                  </div>
+                              </div>
                             </div>
                           </div>
                         </nav>

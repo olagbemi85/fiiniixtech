@@ -30,20 +30,23 @@ class ProductManager(models.Manager):
 	
 
 class ProductOwnCompany(models.Model):
-	company_name = models.CharField(max_length=255, default='admin')
+	company_name = models.CharField(max_length=255)
 	state_where_available = models.CharField(max_length=30)
 	lga_wheree_available = models.CharField(max_length = 30)
-	company_selling_contact = models.CharField(max_length=255, default='admin')
-	company_alt_phonenumber = models.CharField(max_length=255, default='admin')
+	company_selling_contact = models.CharField(max_length=255)
+	company_alt_phonenumber = models.CharField(max_length=255)
 	company_email = models.EmailField()
-	company_address = models.Model(max_length=255)
+	company_address = models.CharField(max_length=255)
+
+	class Meta:
+		verbose_name_plural = 'productowncompanies'
 
 	def __str__(self):
 		return self.company_name
 	
 	def get_absolute_url(self):
-		pass
-		#return reverse('shop:company_sell')
+		
+		return reverse('shop:company_sell', args=[self.company_name])
 
 
 class Product(models.Model):
@@ -77,11 +80,11 @@ class Product(models.Model):
        # it help us to dynamicly link to our categories from the html
 
 	def get_absolute_url(self):
-		return reverse('shop:product_detail', args=[self.slug])
+		return reverse('shop:product_detail', args=[self.model])
 
 
 	def __str__(self):
-		return self.title
+		return self.product_type
 
 
 

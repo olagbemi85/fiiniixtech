@@ -15,7 +15,7 @@ class SearchProductForm(forms.Form):
     product_type= forms.CharField(required=False, widget=forms.TextInput(attrs ={'class':'form-control' ,'placeholder':'product name', 'type':'text'}))
     capacity = forms.CharField(required=False, widget=forms.TextInput(attrs ={'class':'form-control' ,'placeholder':'capacity', 'type':'text'}))
     model = forms.CharField(required=False, widget=forms.TextInput(attrs ={'class':'form-control' ,'placeholder':'last name', 'type':'text'}))
-    name_of_manufaturer = forms.EmailField(required=False, widget=forms.TextInput(attrs ={'class':'form-control' ,'placeholder':'email'}))
+    name_of_manufaturer = forms.EmailField(required=False, widget=forms.TextInput(attrs ={'class':'form-control' ,'placeholder':'Name of Manufacturer'}))
     
     class Meta():
         fields = ('product_type','capacity','model','name_of_manufaturer')
