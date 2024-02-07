@@ -218,3 +218,15 @@
 	padding: 0.75rem 1rem;
 	box-sizing: border-box;
 }
+
+button{
+	
+		background: #f57e20;
+		color: rgb(50, 48, 48);
+		text-decoration: none;
+		border-radius: 10px;
+		padding: 5px 10px;
+		display: inline-block;
+		margin-top: 10px;
+	  
+}
