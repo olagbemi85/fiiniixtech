@@ -173,9 +173,9 @@
                                 </div>
                             </div>
                             <div class="text-center">
-                                <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>
+                                <a class="h6 text-decoration-none text-truncate" href="{{ product.get_absolute_url }}">{{product.product_name}}</a>
                                 <div class="d-flex align-items-center justify-content-center mt-2">
-                                    <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                                    <h6><code>&#x20A6</code> {{product.price}} </h6><h7 class="text-muted ml-2"><del><code>&#x20A6</code>{{product.sell_price}}</del></h7>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-center mb-1">
                                     <small class="fa fa-star text-primary mr-1"></small>
