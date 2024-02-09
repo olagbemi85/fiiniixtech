@@ -46,6 +46,7 @@
 	width: 250px;
 	background: #fff;
 	margin-right: 60px;
+	margin-bottom: 30px;
 	padding: 10px;
 	text-align: center;
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -229,4 +230,16 @@ button{
 		display: inline-block;
 		margin-top: 10px;
 	  
+}
+
+.bttn{
+	
+	background: #f57e20;
+	color: rgb(50, 48, 48);
+	text-decoration: none;
+	border-radius: 10px;
+	padding: 5px 10px;
+	display: inline-block;
+	margin-top: 10px;
+  
 }
