@@ -52,6 +52,7 @@ class ProductOwnCompany(models.Model):
 class Product(models.Model):
 	category = models.ForeignKey(Category, related_name='product', on_delete=models.CASCADE)
 	own_by = models.ForeignKey(ProductOwnCompany, related_name='product_creator', on_delete=models.CASCADE)
+	product_name = models.CharField(max_length=255, default="product name")
 	product_type = models.CharField(max_length=255)
 	model = models.CharField(max_length=255)
 	capacity = models.CharField(max_length=255)

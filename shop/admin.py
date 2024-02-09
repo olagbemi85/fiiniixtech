@@ -6,6 +6,11 @@ from .models import *
 class CatergoryAdmin(admin.ModelAdmin):
     list_display = ['name', 'slug']
     prepopulated_fields = {'slug': ('name',)}
+
+@admin.register(ProductOwnCompany)
+class ProductOwnCompanyAdmin(admin.ModelAdmin):
+    list_display = ['company_name', 'company_email']
+    #prepopulated_fields = {'slug': ('name',)}
     
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
