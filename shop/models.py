@@ -55,6 +55,7 @@ class Product(models.Model):
 	product_name = models.CharField(max_length=255, default="product name")
 	product_type = models.CharField(max_length=255)
 	model = models.CharField(max_length=255)
+	serial_number = models.CharField(max_length=255, blank=True)
 	capacity = models.CharField(max_length=255)
 	name_of_manufaturer = models.CharField(max_length=255)
 	Country_of_manufature = CountryField()

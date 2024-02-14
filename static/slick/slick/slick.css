@@ -21,9 +21,9 @@
 .slick-list
 {
     position: relative;
-
+    max-height: 100%;
     display: block;
-    /*overflow: hidden;*/
+    overflow: hidden;
     margin: 0;
     padding: 0;
 }

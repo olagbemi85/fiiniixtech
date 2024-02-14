@@ -33,7 +33,7 @@ def category_list(request, slug=None):
 
 
 def product_detail(request, slug):
-    product = get_object_or_404(Product, slug=slug, in_stock=True)
+    product = get_object_or_404(Product, model=slug, in_stock=True)
     return render(request, './shop/products/detail.html', {'product': product})
 
 

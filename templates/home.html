@@ -44,7 +44,8 @@
 <!-- Header -->
 <div class="container-fluid">
   <header>
-    <div class="fixed-top row">
+    <!--<div class="fixed-top row">-->
+    <div class="row">
       <!-- Logo -->
       <div class="col-md-12">
         {% include 'partials/_messages.html' %}
@@ -248,17 +249,18 @@
     </div>
   </div>
   {%endcomment%}
-
+  
  <!-- home page Product display-->
+ <div class="container-fluid">
   <div class="featured-product product" style="margin: 4% !important;">
     <div class="container-fluid">
         <div class="titlepage">
           <h2>Our Product</h2>
         </div>
-        <div class="row align-items-center product-slider-4"  style="overflow: visible !important; ">
+        <div class="row align-items-center product-slider-4">
           {% for product in products %}
-              <div class="col-lg-3" style="max-height: 200px !important;">
-                <div class="single-boxx" style="overflow: visible !important; border-radius: 24px;">
+              <div class="col-lg-3" style="max-height: 100% !important;">
+                <div class="single-boxx" style=" border-radius: 24px;">
                     <div class="product-title">
                         <a href="{{ product.get_absolute_url }}">{{product.product_name}}</a>
                         <div class="ratting">
@@ -370,64 +372,68 @@
                     </div>
                 </div>
             </div>
-            {%endcomment%}
+            {%endcomment%} 
         </div>
         <div style=" margin-top: 3%;">
          <a class="btn bttn" style="color:rgb(0, 0, 0) !important;" href="{% url 'shop:product' %}">Shop for More</a>
         </div>
     </div>
   </div>
+</div>
+  
 <!-- Featured Product End --> 
   
 
-
-  <!-- START THE FEATURETTES -->
-  <hr class="my-4">
-  <div class="row featurette">
-    <div class="titlepage">
-      <h2>Our Services</h2>
+<div class="container-fluid">
+    <!-- START THE FEATURETTES -->
+    <hr class="my-4">
+    <div class="row featurette">
+      <div class="titlepage">
+        <h2>Our Services</h2>
+      </div>
+      <div class="col-md-7">
+        <h4 class="featurette-heading">Renewable Energy Design <span class="text-muted"> Services .</span></h4>
+        <p class="lead">Fiiniix technology gives you the best service in strategic planing and implementation of
+          renewable energy service.
+        </p>
+      </div>
+      <div class="col-md-5">
+        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto contain"
+          alt="Responsive image" style="width:90%;height:90%;" src="{% static 'Images/home_image/pexels-los-muertos-crew-8853502.jpg' %}" />
+      </div>
     </div>
-    <div class="col-md-7">
-      <h4 class="featurette-heading">Renewable Energy Design <span class="text-muted"> Services .</span></h4>
-      <p class="lead">Fiiniix technology gives you the best service in strategic planing and implementation of
-        renewable energy service.
-      </p>
+    <hr class="my-4">
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
+        <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this
+          layout would work with some actual real-world content in place.</p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto contain"
+          alt="Responsive image" style="width:200;height:200"
+          src="{% static 'Images/home_image/electrical_maintenance.png' %}" />
+      </div>
     </div>
-    <div class="col-md-5">
-      <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto contain"
-        alt="Responsive image" style="width:90%;height:90%;" src="{% static 'Images/home_image/pexels-los-muertos-crew-8853502.jpg' %}" />
+    <hr class="my-4">
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+        <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended
+          to be actually read, simply here to give you a better view of what this would look like with some actual
+          content. Your content.</p>
+        <p><a class="btn btn-lg btn-primary" href="{% url 'mainpage:all_service' %}">Learn more on Serivces page</a></p>
+      </div>
+      <div class="col-md-5">
+        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto contain"
+          alt="Responsive image" style="width:500;height:500"
+          src="{% static 'Images/home_image/electrical-installation.jpg' %}" />
+      </div>
     </div>
-  </div>
-  <hr class="my-4">
-  <div class="row featurette">
-    <div class="col-md-7 order-md-2">
-      <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
-      <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this
-        layout would work with some actual real-world content in place.</p>
+    <!-- /END THE FEATURETTES -->
     </div>
-    <div class="col-md-5 order-md-1">
-      <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto contain"
-        alt="Responsive image" style="width:200;height:200"
-        src="{% static 'Images/home_image/electrical_maintenance.png' %}" />
-    </div>
-  </div>
-  <hr class="my-4">
-  <div class="row featurette">
-    <div class="col-md-7">
-      <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-      <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended
-        to be actually read, simply here to give you a better view of what this would look like with some actual
-        content. Your content.</p>
-      <p><a class="btn btn-lg btn-primary" href="{% url 'mainpage:all_service' %}">Learn more on Serivces page</a></p>
-    </div>
-    <div class="col-md-5">
-      <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto contain"
-        alt="Responsive image" style="width:500;height:500"
-        src="{% static 'Images/home_image/electrical-installation.jpg' %}" />
-    </div>
-  </div>
-  <!-- /END THE FEATURETTES -->
-  </div>
+</div>
+  
   <hr class="my-4">
   <!-- OUR TEAM -->
   <div class='container-fluid'>
