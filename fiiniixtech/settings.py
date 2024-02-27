@@ -94,7 +94,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'fiiniixtech.wsgi.application'
-ASGI_APPLICATION = 'fiiniixtech.routing.application'
+#ASGI_APPLICATION = 'fiiniixtech.routing.application'
+ASGI_APPLICATION = 'fiiniixtech.asgi.application'
 
 
 # Database
