@@ -41,7 +41,7 @@
       background: #fff;
     }
 
-    /* Appliances */
+    /* Gadgets */
     .heading {
       font-family: poppins, lato, verdana;
       color: #dd3333;
@@ -64,7 +64,7 @@
       border: none !important;
     }
 
-    .appliance {
+    .gadget {
       color: #404040;
       text-align: center;
       display: inline-block;
@@ -78,7 +78,7 @@
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05), 0 3px 6px rgba(0, 0, 0, 0.01);
     }
 
-    .appliance:hover {
+    .gadget:hover {
       color: #fff;
       background-color: #505050;
       border-color: #505050;
@@ -86,12 +86,12 @@
       transition: 0.3s ease;
     }
 
-    .appliance i {
+    .gadget i {
       float: left;
       color: #fff;
     }
 
-    .appliances input {
+    .gadgets input {
       font-family: poppins, lato, verdana;
       font-size: 13px;
       text-align: center;
@@ -186,12 +186,12 @@
 
     /* Media queries */
     @media (max-width: 768px) {
-      .appliance {
+      .gadgets {
         width: 100%;
         font-size: 12px;
         padding: 6px 6px;
       }
-      .appliances input {
+      .gadgets input {
         padding: 12px 4px;
         width: 100%;
         font-size: 11px;
@@ -275,10 +275,10 @@ padding: 5px;
                     <div class="col-md-12">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="" role="presentation">
-                            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Home</button>
+                            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Domestic (Residential) Load</button>
                             </li>
                             <li class="" role="presentation">
-                            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Profile</button>
+                            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Commercial Load</button>
                             </li>
                             <li class="" role="presentation">
                             <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Contact</button>
@@ -292,130 +292,130 @@ padding: 5px;
                                     <div class="item-left col-xs-12 col-sm-12 col-md-8 col-lg-8">
                                         <div class="lc-wrapper">
                                             <div class="lc-container">
-                                                <div class="appliances">
-                                                    <!-- List of appliances -->
+                                                <div class="gadgets">
+                                                    <!-- List of gadget -->
                                                     <div class="heading">Appliance</div>
                                                     <input class="heading2" type="text" value="Quantity" readonly="">
                                                     <input class="heading2" type="text" value="Load" readonly=""><br><br>
                                     
-                                                    <div class="appliance bulb" onclick="selectBulb(); totalBulbLoad(); calcTotalLoad();">
+                                                    <div class="gadget bulb" onclick="selectBulb(); totalBulbLoad(); calcTotalLoad();">
                                                     <i>✓</i>Normal Bulb
                                                     </div>
-                                                    <input type="number" min="0" class="" id="bulb-qty" placeholder="How many?" disabled="" onchange="totalBulbLoad(); calcTotalLoad();">
+                                                    <input type="number" min="0" class="" id="bulb-qty" placeholder="Quantity?" disabled="" onchange="totalBulbLoad(); calcTotalLoad();">
                                                     <input type="number" min="0" name="load" class="" id="bulb-load" placeholder="Power(W)" readonly=""><br><br>
                                     
-                                                    <div class="appliance tlight" onclick="selectTlight(); totalTlightLoad(); calcTotalLoad();">
+                                                    <div class="gadget tlight" onclick="selectTlight(); totalTlightLoad(); calcTotalLoad();">
                                                     <i>✓</i>Tube Light
                                                     </div>
-                                                    <input type="number" min="0" class="" id="tlight-qty" placeholder="How many?" disabled="" onchange="totalTlightLoad(); calcTotalLoad();">
+                                                    <input type="number" min="0" class="" id="tlight-qty" placeholder="Quantity?" disabled="" onchange="totalTlightLoad(); calcTotalLoad();">
                                                     <input type="number" min="0" name="load" class="" id="tlight-load" placeholder="Power(W)" readonly=""><br><br>
                                     
-                                                    <div class="appliance ledlamp" onclick="selectLedlamp(); totalLedlampLoad(); calcTotalLoad();">
+                                                    <div class="gadget ledlamp" onclick="selectLedlamp(); totalLedlampLoad(); calcTotalLoad();">
                                                     <i>✓</i>LED Lamp
                                                     </div>
-                                                    <input type="number" min="0" class="" id="ledlamp-qty" placeholder="How many?" disabled="" onchange="totalLedlampLoad(); calcTotalLoad();">
+                                                    <input type="number" min="0" class="" id="ledlamp-qty" placeholder="Quantity?" disabled="" onchange="totalLedlampLoad(); calcTotalLoad();">
                                                     <input type="number" min="0" name="load" class="" id="ledlamp-load" placeholder="Power(W)" readonly=""><br><br>
                                     
-                                                    <div class="appliance fan" onclick="selectFan(); totalFanLoad(); calcTotalLoad();">
+                                                    <div class="gadget fan" onclick="selectFan(); totalFanLoad(); calcTotalLoad();">
                                                     <i>✓</i>Fan
                                                     </div>
-                                                    <input type="number" min="0" class="" id="fan-qty" placeholder="How many?" disabled="" onchange="totalFanLoad(); calcTotalLoad();">
+                                                    <input type="number" min="0" class="" id="fan-qty" placeholder="Quantity?" disabled="" onchange="totalFanLoad(); calcTotalLoad();">
                                                     <input type="number" min="0" name="load" class="" id="fan-load" placeholder="Power(W)" readonly=""><br><br>
                                     
-                                                    <div class="appliance msystem" onclick="selectMsystem(); totalMsystemLoad(); calcTotalLoad();">
+                                                    <div class="gadget msystem" onclick="selectMsystem(); totalMsystemLoad(); calcTotalLoad();">
                                                     <i>✓</i>Music System
                                                     </div>
-                                                    <input type="number" min="0" class="" id="msystem-qty" placeholder="How many?" disabled="" onchange="totalMsystemLoad(); calcTotalLoad();">
+                                                    <input type="number" min="0" class="" id="msystem-qty" placeholder="Quantity?" disabled="" onchange="totalMsystemLoad(); calcTotalLoad();">
                                                     <input type="number" min="0" name="load" class="" id="msystem-load" placeholder="Power(W)" readonly=""><br><br>
                                     
-                                                    <div class="appliance tvone" onclick="selectTvone(); totalTvoneLoad(); calcTotalLoad();">
+                                                    <div class="gadget tvone" onclick="selectTvone(); totalTvoneLoad(); calcTotalLoad();">
                                                     <i>✓</i>LCD/LED TV (&lt; 42")
                                                     </div>
-                                                    <input type="number" min="0" class="" id="tvone-qty" placeholder="How many?" disabled="" onchange="totalTvoneLoad(); calcTotalLoad();">
+                                                    <input type="number" min="0" class="" id="tvone-qty" placeholder="Quantity?" disabled="" onchange="totalTvoneLoad(); calcTotalLoad();">
                                                     <input type="number" min="0" name="load" class="" id="tvone-load" placeholder="Power(W)" readonly=""><br><br>
                                     
-                                                    <div class="appliance tvtwo" onclick="selectTvtwo(); totalTvtwoLoad(); calcTotalLoad();">
+                                                    <div class="gadget tvtwo" onclick="selectTvtwo(); totalTvtwoLoad(); calcTotalLoad();">
                                                     <i>✓</i>LCD/LED TV (&gt; 42")
                                                     </div>
-                                                    <input type="number" min="0" class="" id="tvtwo-qty" placeholder="How many?" disabled="" onchange="totalTvtwoLoad(); calcTotalLoad();">
+                                                    <input type="number" min="0" class="" id="tvtwo-qty" placeholder="Quantity?" disabled="" onchange="totalTvtwoLoad(); calcTotalLoad();">
                                                     <input type="number" min="0" name="load" class="" id="tvtwo-load" placeholder="Power(W)" readonly=""><br><br>
                                     
-                                                    <div class="appliance desktop" onclick="selectDesktop(); totalDesktopLoad(); calcTotalLoad();">
+                                                    <div class="gadget desktop" onclick="selectDesktop(); totalDesktopLoad(); calcTotalLoad();">
                                                     <i>✓</i>Desktop Computer
                                                     </div>
-                                                    <input type="number" min="0" class="" id="desktop-qty" placeholder="How many?" disabled="" onchange="totalDesktopLoad(); calcTotalLoad();">
+                                                    <input type="number" min="0" class="" id="desktop-qty" placeholder="Quantity?" disabled="" onchange="totalDesktopLoad(); calcTotalLoad();">
                                                     <input type="number" min="0" name="load" class="" id="desktop-load" placeholder="Power(W)" readonly=""><br><br>
                                     
-                                                    <div class="appliance laptop" onclick="selectLaptop(); totalLaptopLoad(); calcTotalLoad();">
+                                                    <div class="gadget laptop" onclick="selectLaptop(); totalLaptopLoad(); calcTotalLoad();">
                                                     <i>✓</i>Laptop
                                                     </div>
-                                                    <input type="number" min="0" class="" id="laptop-qty" placeholder="How many?" disabled="" onchange="totalLaptopLoad(); calcTotalLoad();">
+                                                    <input type="number" min="0" class="" id="laptop-qty" placeholder="Quantity?" disabled="" onchange="totalLaptopLoad(); calcTotalLoad();">
                                                     <input type="number" min="0" name="load" class="" id="laptop-load" placeholder="Power(W)" readonly=""><br><br>
                                     
-                                                    <div class="appliance fridgeone" onclick="selectFridgeone(); totalFridgeoneLoad(); calcTotalLoad();">
+                                                    <div class="gadget fridgeone" onclick="selectFridgeone(); totalFridgeoneLoad(); calcTotalLoad();">
                                                     <i>✓</i>Refrigerator (165-250Ltr)
                                                     </div>
-                                                    <input type="number" min="0" class="" id="fridgeone-qty" placeholder="How many?" disabled="" onchange="totalFridgeoneLoad(); calcTotalLoad();">
+                                                    <input type="number" min="0" class="" id="fridgeone-qty" placeholder="Quantity?" disabled="" onchange="totalFridgeoneLoad(); calcTotalLoad();">
                                                     <input type="number" min="0" name="load" class="" id="fridgeone-load" placeholder="Power(W)" readonly=""><br><br>
                                     
-                                                    <div class="appliance fridgetwo" onclick="selectFridgetwo(); totalFridgetwoLoad(); calcTotalLoad();">
+                                                    <div class="gadget fridgetwo" onclick="selectFridgetwo(); totalFridgetwoLoad(); calcTotalLoad();">
                                                     <i>✓</i>Refrigerator (250-350Ltr)
                                                     </div>
-                                                    <input type="number" min="0" class="" id="fridgetwo-qty" placeholder="How many?" disabled="" onchange="totalFridgetwoLoad(); calcTotalLoad();">
+                                                    <input type="number" min="0" class="" id="fridgetwo-qty" placeholder="Quantity?" disabled="" onchange="totalFridgetwoLoad(); calcTotalLoad();">
                                                     <input type="number" min="0" name="load" class="" id="fridgetwo-load" placeholder="Power(W)" readonly=""><br><br>
                                     
-                                                    <div class="appliance fridgethree" onclick="selectFridgethree(); totalFridgethreeLoad(); calcTotalLoad();">
+                                                    <div class="gadget fridgethree" onclick="selectFridgethree(); totalFridgethreeLoad(); calcTotalLoad();">
                                                     <i>✓</i>Refrigerator (350-450Ltr)
                                                     </div>
-                                                    <input type="number" min="0" class="" id="fridgethree-qty" placeholder="How many?" disabled="" onchange="totalFridgethreeLoad(); calcTotalLoad();">
+                                                    <input type="number" min="0" class="" id="fridgethree-qty" placeholder="Quantity?" disabled="" onchange="totalFridgethreeLoad(); calcTotalLoad();">
                                                     <input type="number" min="0" name="load" class="" id="fridgethree-load" placeholder="Power(W)" readonly=""><br><br>
                                     
-                                                    <div class="appliance fridgefour" onclick="selectFridgefour(); totalFridgefourLoad(); calcTotalLoad();">
+                                                    <div class="gadget fridgefour" onclick="selectFridgefour(); totalFridgefourLoad(); calcTotalLoad();">
                                                     <i>✓</i>Refrigerator (&gt; 450Ltr)
                                                     </div>
-                                                    <input type="number" min="0" class="" id="fridgefour-qty" placeholder="How many?" disabled="" onchange="totalFridgefourLoad(); calcTotalLoad();">
+                                                    <input type="number" min="0" class="" id="fridgefour-qty" placeholder="Quantity?" disabled="" onchange="totalFridgefourLoad(); calcTotalLoad();">
                                                     <input type="number" min="0" name="load" class="" id="fridgefour-load" placeholder="Power(W)" readonly=""><br><br>
                                     
-                                                    <div class="appliance acone" onclick="selectAcone(); totalAconeLoad(); calcTotalLoad();">
+                                                    <div class="gadget acone" onclick="selectAcone(); totalAconeLoad(); calcTotalLoad();">
                                                     <i>✓</i>AC - 1HP
                                                     </div>
-                                                    <input type="number" min="0" class="" id="acone-qty" placeholder="How many?" disabled="" onchange="totalAconeLoad(); calcTotalLoad();">
+                                                    <input type="number" min="0" class="" id="acone-qty" placeholder="Quantity?" disabled="" onchange="totalAconeLoad(); calcTotalLoad();">
                                                     <input type="number" min="0" name="load" class="" id="acone-load" placeholder="Power(W)" readonly=""><br><br>
                                     
-                                                    <div class="appliance actwo" onclick="selectActwo(); totalActwoLoad(); calcTotalLoad();">
+                                                    <div class="gadget actwo" onclick="selectActwo(); totalActwoLoad(); calcTotalLoad();">
                                                     <i>✓</i>AC - 1.5HP
                                                     </div>
-                                                    <input type="number" min="0" class="" id="actwo-qty" placeholder="How many?" disabled="" onchange="totalActwoLoad(); calcTotalLoad();">
+                                                    <input type="number" min="0" class="" id="actwo-qty" placeholder="Quantity?" disabled="" onchange="totalActwoLoad(); calcTotalLoad();">
                                                     <input type="number" min="0" name="load" class="" id="actwo-load" placeholder="Power(W)" readonly=""><br><br>
                                     
-                                                    <div class="appliance acthree" onclick="selectActhree(); totalActhreeLoad(); calcTotalLoad();">
+                                                    <div class="gadget acthree" onclick="selectActhree(); totalActhreeLoad(); calcTotalLoad();">
                                                     <i>✓</i>AC - 2HP
                                                     </div>
-                                                    <input type="number" min="0" class="" id="acthree-qty" placeholder="How many?" disabled="" onchange="totalActhreeLoad(); calcTotalLoad();">
+                                                    <input type="number" min="0" class="" id="acthree-qty" placeholder="Quantity?" disabled="" onchange="totalActhreeLoad(); calcTotalLoad();">
                                                     <input type="number" min="0" name="load" class="" id="acthree-load" placeholder="Power(W)" readonly=""><br><br>
                                     
-                                                    <div class="appliance toaster" onclick="selectToaster(); totalToasterLoad(); calcTotalLoad();">
+                                                    <div class="gadget toaster" onclick="selectToaster(); totalToasterLoad(); calcTotalLoad();">
                                                     <i>✓</i>Toaster
                                                     </div>
-                                                    <input type="number" min="0" class="" id="toaster-qty" placeholder="How many?" disabled="" onchange="totalToasterLoad(); calcTotalLoad();">
+                                                    <input type="number" min="0" class="" id="toaster-qty" placeholder="Quantity?" disabled="" onchange="totalToasterLoad(); calcTotalLoad();">
                                                     <input type="number" min="0" name="load" class="" id="toaster-load" placeholder="Power(W)" readonly=""><br><br>
                                     
-                                                    <div class="appliance washingmachine" onclick="selectWashingmachine(); totalWashingmachineLoad(); calcTotalLoad();">
+                                                    <div class="gadget washingmachine" onclick="selectWashingmachine(); totalWashingmachineLoad(); calcTotalLoad();">
                                                     <i>✓</i>Washing Machine
                                                     </div>
-                                                    <input type="number" min="0" class="" id="washingmachine-qty" placeholder="How many?" disabled="" onchange="totalWashingmachineLoad(); calcTotalLoad();">
+                                                    <input type="number" min="0" class="" id="washingmachine-qty" placeholder="Quantity?" disabled="" onchange="totalWashingmachineLoad(); calcTotalLoad();">
                                                     <input type="number" min="0" name="load" class="" id="washingmachine-load" placeholder="Power(W)" readonly=""><br><br>
                                     
-                                                    <div class="appliance gamingconsole" onclick="selectGamingconsole(); totalGamingconsoleLoad(); calcTotalLoad();">
+                                                    <div class="gadget gamingconsole" onclick="selectGamingconsole(); totalGamingconsoleLoad(); calcTotalLoad();">
                                                     <i>✓</i>Gaming Console
                                                     </div>
-                                                    <input type="number" min="0" class="" id="gamingconsole-qty" placeholder="How many?" disabled="" onchange="totalGamingconsoleLoad(); calcTotalLoad();">
+                                                    <input type="number" min="0" class="" id="gamingconsole-qty" placeholder="Quantity?" disabled="" onchange="totalGamingconsoleLoad(); calcTotalLoad();">
                                                     <input type="number" min="0" name="load" class="" id="gamingconsole-load" placeholder="Power(W)" readonly=""><br><br>
                                     
-                                                    <div class="appliance microwaveoven" onclick="selectMicrowaveoven(); totalMicrowaveovenLoad(); calcTotalLoad();">
+                                                    <div class="gadget microwaveoven" onclick="selectMicrowaveoven(); totalMicrowaveovenLoad(); calcTotalLoad();">
                                                     <i>✓</i>Microwave Oven
                                                     </div>
-                                                    <input type="number" min="0" class="" id="microwaveoven-qty" placeholder="How many?" disabled="" onchange="totalMicrowaveovenLoad(); calcTotalLoad();">
+                                                    <input type="number" min="0" class="" id="microwaveoven-qty" placeholder="Quantity?" disabled="" onchange="totalMicrowaveovenLoad(); calcTotalLoad();">
                                                     <input type="number" min="0" name="load" class="" id="microwaveoven-load" placeholder="Power(W)" readonly=""><br><br>
                                                 </div>
                                             </div>
@@ -512,4 +512,5 @@ padding: 5px;
 
     {% include 'mainpage/navigations/footer.html' %}                         
 </main>
+<script src="{% static 'js/calculator/house_power_appliance_cal.js' %}"></script>
 {% endblock %}
