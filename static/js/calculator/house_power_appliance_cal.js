@@ -1,6 +1,6 @@
 
     // Selectors
-    let appliance = document.querySelector(".appliance");
+    let appliance = document.querySelector(".gadget");
     let selected = document.querySelector(".selected");
     let loadActive = document.getElementsByClassName("load-active");
     // Bulb
@@ -713,6 +713,7 @@
         note.innerText = ``;
       }
 
+      /*
       if(batteryCapacity.value == 150){
         batt_price = 180000;
       }else if(batteryCapacity.value == 220){
@@ -750,6 +751,7 @@
           loadPrice.value = `NGN ${Number(batt_price + 117000).toLocaleString()}`; 
         }
       }
+      */
     }
 
 
