@@ -97,6 +97,23 @@ WSGI_APPLICATION = 'fiiniixtech.wsgi.application'
 #ASGI_APPLICATION = 'fiiniixtech.routing.application'
 ASGI_APPLICATION = 'fiiniixtech.asgi.application'
 
+#channels server
+'''
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            'host': [('0.0.0.0', 6379)],
+        },
+    },
+}
+'''
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
+}
+
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases

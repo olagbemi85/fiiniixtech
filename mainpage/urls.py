@@ -16,7 +16,7 @@ urlpatterns = [
 	path('service/', views.all_service, name='all_service'),
 	path('item/<slug:slug>/', views.service_detail, name='service_detail'),
     path('search/<slug:sercategory_slug>/', views.serviceCategory_list, name='serviceCategory_list'),
-	#path('product/', views.all_products, name='product'),
+	path('load-inverter-calculator/', views.load_inverter_calu_services, name='load_inverter_cal'),
  	#path('category/product/<slug:slug>/', views.category_list, name='category_list'),
  	#path('all-product/product/<slug:slug>/', views.product_detail, name='product_detail'),
 ]

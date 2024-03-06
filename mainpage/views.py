@@ -79,6 +79,10 @@ def serviceCategory_list(request, category_slug=None):
 def service_detail(request, slug):
     service= get_object_or_404(Service, slug=slug, in_stock=True)
     return render(request, './mainpage/services/detail.html', {'service': service})
+
+def load_inverter_calu_services(request):
+    
+    return render(request, './mainpage/services/load_inverter_calcu.html')
 #services section end
 
 
