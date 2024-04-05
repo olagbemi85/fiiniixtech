@@ -1,4 +1,4 @@
-{%load static%}
+{% load static %}
 <div class="row">
     <div class="item-left col-xs-12 col-sm-12 col-md-8 col-lg-8">
         <div class="lc-wrapper">
@@ -12,7 +12,7 @@
                     <div class="gadget bulb" onclick="selectBulb(); totalBulbLoad(); calcTotalLoad();">
                     <i>✓</i>Normal Bulb
                     </div>
-                    <input type="number" min="0" class="" id="bulb-qty" placeholder="Quantity?" disabled="" onchange="totalBulbLoad(); calcTotalLoad();">
+                    <input type="number" min="0" class="" id="commercial-bulb-qty" placeholder="Quantity?" disabled="" onchange="totalBulbLoad(); calcTotalLoad();">
                     <input type="number" min="0" name="load" class="" id="bulb-load" placeholder="Power(W)" readonly=""><br><br>
     
                     <div class="gadget tlight" onclick="selectTlight(); totalTlightLoad(); calcTotalLoad();">
@@ -21,6 +21,8 @@
                     <input type="number" min="0" class="" id="tlight-qty" placeholder="Quantity?" disabled="" onchange="totalTlightLoad(); calcTotalLoad();">
                     <input type="number" min="0" name="load" class="" id="tlight-load" placeholder="Power(W)" readonly=""><br><br>
     
+
+                    {% comment %}
                     <div class="gadget ledlamp" onclick="selectLedlamp(); totalLedlampLoad(); calcTotalLoad();">
                     <i>✓</i>LED Lamp
                     </div>
@@ -32,12 +34,6 @@
                     </div>
                     <input type="number" min="0" class="" id="fan-qty" placeholder="Quantity?" disabled="" onchange="totalFanLoad(); calcTotalLoad();">
                     <input type="number" min="0" name="load" class="" id="fan-load" placeholder="Power(W)" readonly=""><br><br>
-    
-                    <div class="gadget msystem" onclick="selectMsystem(); totalMsystemLoad(); calcTotalLoad();">
-                    <i>✓</i>Music System
-                    </div>
-                    <input type="number" min="0" class="" id="msystem-qty" placeholder="Quantity?" disabled="" onchange="totalMsystemLoad(); calcTotalLoad();">
-                    <input type="number" min="0" name="load" class="" id="msystem-load" placeholder="Power(W)" readonly=""><br><br>
     
                     <div class="gadget tvone" onclick="selectTvone(); totalTvoneLoad(); calcTotalLoad();">
                     <i>✓</i>LCD/LED TV (&lt; 42")
@@ -105,29 +101,12 @@
                     <input type="number" min="0" class="" id="acthree-qty" placeholder="Quantity?" disabled="" onchange="totalActhreeLoad(); calcTotalLoad();">
                     <input type="number" min="0" name="load" class="" id="acthree-load" placeholder="Power(W)" readonly=""><br><br>
     
-                    <div class="gadget toaster" onclick="selectToaster(); totalToasterLoad(); calcTotalLoad();">
-                    <i>✓</i>Toaster
-                    </div>
-                    <input type="number" min="0" class="" id="toaster-qty" placeholder="Quantity?" disabled="" onchange="totalToasterLoad(); calcTotalLoad();">
-                    <input type="number" min="0" name="load" class="" id="toaster-load" placeholder="Power(W)" readonly=""><br><br>
-    
                     <div class="gadget washingmachine" onclick="selectWashingmachine(); totalWashingmachineLoad(); calcTotalLoad();">
                     <i>✓</i>Washing Machine
                     </div>
                     <input type="number" min="0" class="" id="washingmachine-qty" placeholder="Quantity?" disabled="" onchange="totalWashingmachineLoad(); calcTotalLoad();">
                     <input type="number" min="0" name="load" class="" id="washingmachine-load" placeholder="Power(W)" readonly=""><br><br>
-    
-                    <div class="gadget gamingconsole" onclick="selectGamingconsole(); totalGamingconsoleLoad(); calcTotalLoad();">
-                    <i>✓</i>Gaming Console
-                    </div>
-                    <input type="number" min="0" class="" id="gamingconsole-qty" placeholder="Quantity?" disabled="" onchange="totalGamingconsoleLoad(); calcTotalLoad();">
-                    <input type="number" min="0" name="load" class="" id="gamingconsole-load" placeholder="Power(W)" readonly=""><br><br>
-    
-                    <div class="gadget microwaveoven" onclick="selectMicrowaveoven(); totalMicrowaveovenLoad(); calcTotalLoad();">
-                    <i>✓</i>Microwave Oven
-                    </div>
-                    <input type="number" min="0" class="" id="microwaveoven-qty" placeholder="Quantity?" disabled="" onchange="totalMicrowaveovenLoad(); calcTotalLoad();">
-                    <input type="number" min="0" name="load" class="" id="microwaveoven-load" placeholder="Power(W)" readonly=""><br><br>
+                {% endcomment %}
                 </div>
             </div>
         </div>
@@ -188,24 +167,10 @@
                 to attain this backup time.
             </p>
             </div>
-            
-            <hr>
 
-            <div class="etimate-price" style="display:none;">
-            <h3>Estimated <br>Price<br></h3>
-            <input type="text" id="etimate-price" value="NGN 0.00" readonly="" style="font-family: poppins, lato, verdana; width: 200px; color: #dd3333; font-size: 18px; font-weight: 400; margin: 0; border: none; text-align: center;">
-            <h4>Naira </h4>  
-            </div>
-            
-            <hr style="display:none;">
-            <div class="client_form">
-            <input required="" type="text" name="fullname" placeholder="Enter Full Name here" style="font-family: poppins, lato, verdana; width: 100%; padding: 12px 20px; margin: 8px 0; box-sizing: border-box;">
-            <input required="" type="email" name="email" placeholder="Enter Email Address" style="font-family: poppins, lato, verdana; width: 100%; padding: 12px 20px; margin: 8px 0; box-sizing: border-box;">
-            <input required="" type="tel" name="mobile" class="num" placeholder="Enter Mobile Number" style="font-family: poppins, lato, verdana; width: 100%; padding: 12px 20px; margin: 8px 0; box-sizing: border-box;">
-            <textarea name="location" required="" placeholder="Enter Your Address" style="font-family: poppins, lato, verdana; width: 100%; padding: 12px 20px; margin: 8px 0; box-sizing: border-box;"></textarea>
-            <button type="submit" style="font-family: poppins, lato, verdana; border-radius: 9px; border: 1px solid #1a76af; background-color: transparent; /* Green */ color: #1a76af; padding: 15px 32px; text-align: center; display: inline-block; font-size: 16px;">Request Quote</button>
-            </div>
         </form>
         </div>
     </div> 
 </div>
+
+<script src="{% static 'js/calculator/commercial_power_cal.js' %}"></script>

@@ -1,6 +1,6 @@
 
     // Selectors
-    let appliance = document.querySelector(".gadget");
+    let commercial = document.querySelector(".commercial");
     let selected = document.querySelector(".selected");
     let loadActive = document.getElementsByClassName("load-active");
     // Bulb
@@ -266,18 +266,7 @@
       }
     }
 
-    // Load calculators
-    // Gaming Console
-    function totalGamingconsoleLoad() {
-      gamingconsoleLoad.value = gamingconsoleQty.value * 200;
-    }
-
-    // Microwave Oven
-    function totalMicrowaveovenLoad() {
-      microwaveovenLoad.value = microwaveovenQty.value * 1400;
-    }
-
-
+  
  /*   function baseurl(){
       return 'http://fanquix.com'; 
     }
@@ -540,6 +529,18 @@
       }
     }
 
+
+
+      // Load calculators
+    // Gaming Console
+    function totalGamingconsoleLoad() {
+        gamingconsoleLoad.value = gamingconsoleQty.value * 200;
+      }
+  
+      // Microwave Oven
+      function totalMicrowaveovenLoad() {
+        microwaveovenLoad.value = microwaveovenQty.value * 1400;
+      }
     // Load calculators
     // Bulb
     function totalBulbLoad() {

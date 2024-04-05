@@ -16,4 +16,4 @@ class AsyncNotification(AsyncWebsocketConsumer):
         return await super().disconnect(code)
 
     async def receive(self, text_data=None, bytes_data=None):
-        return await super().receive(text_data, bytes_data)    
+        return await super().receive(text_data, bytes_data)   
