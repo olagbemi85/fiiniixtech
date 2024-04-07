@@ -21,3 +21,5 @@ class SearchProductForm(forms.Form):
         fields = ('product_type','capacity','model','name_of_manufaturer')
 
 
+class SearchForm(forms.Form):
+    search = forms.CharField(required=False, widget=forms.TextInput(attrs ={'class':'fff', 'placeholder':'Search', 'type':'text'}))

@@ -36,7 +36,7 @@ def product_detail(request, slug):
     product = get_object_or_404(Product, model=slug, in_stock=True)
     return render(request, './shop/products/detail.html', {'product': product})
 
-
+'''
 def search_view(request):
     if request.method == 'GET':
         form = SearchProductForm(request.GET)
@@ -49,6 +49,22 @@ def search_view(request):
         form = SearchProductForm()
 
     return render(request, 'search.html', {'form': form})
+'''
+
+# @login_required
+def searchStation(request):
+    #user = request.user
+    #profile = User.objects.get(email=user)
+    #pp= get_object_or_404(User, email=user)
+    searchForm = SearchForm()
+    query = request.GET.get('q')
+    if query:
+        results =   Product.objects.filter(product_type__icontains=query) | Product.objects.filter(capacity__icontains=query) | Product.objects.filter(model__icontains=query) | Product.objects.filter(name_of_manufaturer__icontains=query) | Product.objects.filter(category__name__icontains=query) #| Station.objects.filter(local_gov_area__icontains=query) 
+    #elif query:
+    #    Category.objects.filter(name__icontains=query)     
+    else:
+        results = Product.objects.none() 
+    return render(request, './shop/products/search_result.html', {'query':query, 'results':results, 'searchForm':searchForm})
 
 
 class ListViewProduct(ListView):
@@ -56,18 +72,18 @@ class ListViewProduct(ListView):
      template_name = './shop/products/product.html' 
      context_object_name = 'products'
      paginate_by = 6
-     form_class =  SearchProductForm
+     search_form =  SearchForm
 
      def get_queryset(self):
         queryset = Product.objects.all()
         search_query = self.request.GET.get('search_query')
 
         if search_query:
-            queryset = queryset.filter(name__icontains=search_query)
+            queryset = Product.objects.filter(product_type__icontains=search_query) | Product.objects.filter(capacity__icontains=search_query) | Product.objects.filter(model__icontains=search_query) | Product.objects.filter(name_of_manufaturer__icontains=search_query)| Product.objects.filter(category__icontains=search_query) #| Station.objects.filter(local_gov_area__icontains=query)  )
 
         return queryset
 
      def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['search_form'] = SearchProductForm(self.request.GET)
+        context['search_form'] = SearchForm(self.request.GET)
         return context

@@ -43,6 +43,7 @@
         <div class="col-lg-3 col-md-4">
             <!-- Price Start -->
             <div class="bg-light p-4 mb-30">
+                {%comment%}
                 <h5 class="section-title position-relative text-uppercase mb-3"><span>Filter by price</span></h5>
                 <form style="background-color: rgb(239, 230, 219); padding: 0.75rem 1rem; box-sizing: border-box;">
                     <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
@@ -76,10 +77,18 @@
                         <span class="badge border font-weight-normal">168</span>
                     </div>
                 </form>
+                {%endcomment%}
+                <form style="margin: 1% !important;" action="{% url 'shop:search'%}" method="get">
+                    <input style="padding: 0.375rem 0.75rem;color: #212529;
+                    background-color: #fff; border: 1px solid #ced4da; border-radius: 0.25rem;"
+                     type="text" name="q" value="{{ query }}" placeholder="Search">
+                    <input type="submit" value="Search">
+                </form>
             </div>
             <!-- Price End -->
             
             <!-- Color Start -->
+            {%comment%}
             <div class="bg-light p-4 mb-30">
                 <h5 class="section-title position-relative text-uppercase mb-3"><span class="pr-3">Filter by color</span></h5>
                 <form class="myboxx">
@@ -115,9 +124,11 @@
                     </div>
                 </form>
             </div>
+            {%endcomment%}
             <!-- Color End -->
 
-            <!-- Size Start -->    
+            <!-- Size Start --> 
+            {%comment%}   
             <div class="p-4 mb-30">
                 <h5 class="section-title position-relative text-uppercase mb-3"><span class="pr-3">Filter by size</span></h5>
                 <form class="myboxx">
@@ -153,6 +164,7 @@
                     </div>
                 </form>
             </div>
+            {%endcomment%}
             <!-- Size End -->
         </div>
         <!-- Shop Sidebar End --> 
