@@ -1,0 +1,91 @@
+{%load static%}
+<div class="row">
+    <div class="item-left col-xs-12 col-sm-12 col-md-8 col-lg-8">
+        <div class="lc-wrapper">
+            <div class="lc-container">
+                <div class="gadgets">
+                    <!-- List of gadget -->
+                    <div class="heading">Elctrical Load Type</div>
+                    <input class="heading2" type="text" value="Quantity" readonly="">
+                    <input class="heading2" type="text" value="Load" readonly=""><br><br>
+    
+                    <div class="gadget resistiveLoad" onclick="selectResistive(); totalResistiveLoad(); calcTotalLoad();">
+                    <i>✓</i>Resistive Load
+                    </div>
+                    <input type="number" min="0" class="" id="resistive-qty" placeholder="Quantity?" disabled="" onchange="totalResistLoad(); calcTotalLoad();">
+                    <input type="number" min="0" name="load" class="" id="resistive-load" placeholder="Power(W)" readonly=""><br><br>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="item-right col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <div class="results">
+        <form method="POST" id="inverter_load_form" autocomplete="off" novalidate="">
+            <div class="total-load">
+            <h3>Your Total Load<br>▾</h3>
+            <input type="text" id="total-load" value="0" readonly="" style="font-family: poppins, lato, verdana; width: 200px; color: #dd3333; font-size: 28px; font-weight: 400; margin: 0; border: none; text-align: center; cursor: default; margin: 0 auto;">
+            <h4>Watts</h4>
+            
+            <hr>
+            </div>
+        
+            <div class="rating">
+            <h3>
+                Recommended<br>
+                Inverter Rating<br>▾
+            </h3>
+            <input type="text" id="rating" value="0" readonly="" style="font-family: poppins, lato, verdana; width: 200px; color: #dd3333; font-size: 28px; font-weight: 400; margin: 0; border: none; text-align: center; cursor: default; margin: 0 auto;">
+            <h4>VA</h4>
+        
+            <hr>
+            </div>
+            
+            <h6>Choose Battery Capacity</h6>
+            <select id="battery-capacity" value="" onchange="calcBackupTime();">
+                <option value="">&nbsp;Select An Option</option>
+                <option value="220">220 Ah</option>
+                <!--<option value="200">200 Ah</option>-->
+                <option value="150">150 Ah</option>
+            </select>
+            <h4>(Ampere Hours)</h4>
+            
+            <hr>
+            
+            
+            <div class="inverter_battery">
+            <h3>
+                Recommended<br>
+                Inverter Battery<br>▾
+            </h3>
+            <input type="text" id="inverter_battery" value="0v" readonly="" style=" background-color:#f0f8ff00; font-family: poppins, lato, verdana; width: 200px; color: #dd3333; font-size: 28px; font-weight: 400; margin: 0; border: none; text-align: center; cursor: default; margin: 0 auto;">
+            <h4>Volts</h4>
+            
+            <hr>
+            </div>
+            
+            <div class="backup-time"> 
+            <h3>Your Available<br>Battery Back Up Time<br>▾</h3>
+            <input type="text" id="backup-time" value="0" readonly="" style="font-family: poppins, lato, verdana; width: 200px; color: #dd3333; font-size: 28px; font-weight: 400; margin: 0; border: none; text-align: center; cursor: default; margin: 0 auto;">
+            <h4>Hours</h4>
+            <i class="note"></i>
+            <p style="font-size:16px; color:red;">
+                <b>Disclaimer:</b> Backup time shown here is approximate.<br>
+                The Battery should be in fully charged condition<br>
+                to attain this backup time.
+            </p>
+            </div>
+            
+            <hr>
+
+            <div class="etimate-price" style="display:none;">
+            <h3>Estimated <br>Price<br></h3>
+            <input type="text" id="etimate-price" value="NGN 0.00" readonly="" style="font-family: poppins, lato, verdana; width: 200px; color: #dd3333; font-size: 18px; font-weight: 400; margin: 0; border: none; text-align: center;">
+            <h4>Naira </h4>  
+            </div>
+           
+        </form>
+        </div>
+    </div> 
+</div>
+<script src="{% static 'js/calculator/electrical_power_cal.js' %}"></script>

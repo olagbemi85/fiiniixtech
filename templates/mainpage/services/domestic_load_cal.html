@@ -92,12 +92,24 @@
                     </div>
                     <input type="number" min="0" class="" id="acone-qty" placeholder="Quantity?" disabled="" onchange="totalAconeLoad(); calcTotalLoad();">
                     <input type="number" min="0" name="load" class="" id="acone-load" placeholder="Power(W)" readonly=""><br><br>
+                    
+                    <div class="gadget invacone" onclick="selectInvAcone(); totalInvAconeLoad(); calcTotalLoad();">
+                    <i>✓</i> Inv AC - 1HP
+                    </div>
+                    <input type="number" min="0" class="" id="invacone-qty" placeholder="Quantity?" disabled="" onchange="totalInvAconeLoad(); calcTotalLoad();">
+                    <input type="number" min="0" name="load" class="" id="invacone-load" placeholder="Power(W)" readonly=""><br><br>
     
                     <div class="gadget actwo" onclick="selectActwo(); totalActwoLoad(); calcTotalLoad();">
                     <i>✓</i>AC - 1.5HP
                     </div>
                     <input type="number" min="0" class="" id="actwo-qty" placeholder="Quantity?" disabled="" onchange="totalActwoLoad(); calcTotalLoad();">
                     <input type="number" min="0" name="load" class="" id="actwo-load" placeholder="Power(W)" readonly=""><br><br>
+                    
+                    <div class="gadget invactwo" onclick="selectInvActwo(); totalInvActwoLoad(); calcTotalLoad();">
+                    <i>✓</i>Inv AC - 1.5HP
+                    </div>
+                    <input type="number" min="0" class="" id="invactwo-qty" placeholder="Quantity?" disabled="" onchange="totalInvActwoLoad(); calcTotalLoad();">
+                    <input type="number" min="0" name="load" class="" id="invactwo-load" placeholder="Power(W)" readonly=""><br><br>
     
                     <div class="gadget acthree" onclick="selectActhree(); totalActhreeLoad(); calcTotalLoad();">
                     <i>✓</i>AC - 2HP
@@ -182,6 +194,7 @@
             <input type="text" id="backup-time" value="0" readonly="" style="font-family: poppins, lato, verdana; width: 200px; color: #dd3333; font-size: 28px; font-weight: 400; margin: 0; border: none; text-align: center; cursor: default; margin: 0 auto;">
             <h4>Hours</h4>
             <i class="note"></i>
+            
             <p style="font-size:16px; color:red;">
                 <b>Disclaimer:</b> Backup time shown here is approximate.<br>
                 The Battery should be in fully charged condition<br>
@@ -205,6 +218,7 @@
             <textarea name="location" required="" placeholder="Enter Your Address" style="font-family: poppins, lato, verdana; width: 100%; padding: 12px 20px; margin: 8px 0; box-sizing: border-box;"></textarea>
             <button type="submit" style="font-family: poppins, lato, verdana; border-radius: 9px; border: 1px solid #1a76af; background-color: transparent; /* Green */ color: #1a76af; padding: 15px 32px; text-align: center; display: inline-block; font-size: 16px;">Request Quote</button>
             </div>
+            
         </form>
         </div>
     </div> 

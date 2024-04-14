@@ -277,12 +277,14 @@ padding: 5px;
                             <li class="" role="presentation">
                             <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Domestic (Residential) Load</button>
                             </li>
+                            {%comment%}
                             <li class="" role="presentation">
-                            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Commercial Load</button>
+                            <button class="nav-link" id="commercial-tab" data-bs-toggle="tab" data-bs-target="#commercial" type="button" role="tab" aria-controls="commercial" aria-selected="false">Commercial Load</button>
                             </li>
                             <li class="" role="presentation">
-                            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Industrial Load</button>
+                            <button class="nav-link" id="electrical-tab" data-bs-toggle="tab" data-bs-target="#electrical" type="button" role="tab" aria-controls="electrical" aria-selected="false">Electrical Load</button>
                             </li>
+                            {%endcomment%}
                             <li class="" role="presentation">
                             <button class="nav-link" id="coolingSystem-tab" data-bs-toggle="tab" data-bs-target="#coolingSystem" type="button" role="tab" aria-controls="coolingSystem" aria-selected="false">Industrial Cooling System</button>
                             </li>
@@ -293,13 +295,17 @@ padding: 5px;
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                               {% include './domestic_load_cal.html' %}    
                             </div>
-                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            {%comment%}
+                            <div class="tab-pane fade" id="commercial" role="tabpanel" aria-labelledby="commercial-tab">
                               {% include './commercial_load_cal.html' %}
                             </div>
-                            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                              {% include './industrial_load_cal.html' %}
+                            <div class="tab-pane fade" id="electrical" role="tabpanel" aria-labelledby="electrical-tab">
+                              {% include './electrical_load_cal.html' %}
                             </div>
-                            <div class="tab-pane fade" id="coolingSystem" role="tabpanel" aria-labelledby="coolingSystem-tab">Calculate cooling system for you</div>
+                            {%endcomment%}
+                            <div class="tab-pane fade" id="coolingSystem" role="tabpanel" aria-labelledby="coolingSystem-tab">
+                              {% include './electrical_load_cal.html' %}
+                            </div>
                         </div>
                     </div>
                 </div> 

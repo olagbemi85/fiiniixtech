@@ -51,10 +51,18 @@
     let acone = document.querySelector(".acone");
     let aconeLoad = document.getElementById("acone-load");
     let aconeQty = document.getElementById("acone-qty");
+    //inverter AC one
+    let invacone = document.querySelector(".invacone");
+    let invaconeLoad = document.getElementById("invacone-load");
+    let invaconeQty = document.getElementById("invacone-qty");
     // AC two
     let actwo = document.querySelector(".actwo");
     let actwoLoad = document.getElementById("actwo-load");
     let actwoQty = document.getElementById("actwo-qty");
+    //invter AC two
+    let invactwo = document.querySelector(".invactwo");
+    let invactwoLoad = document.getElementById("invactwo-load");
+    let invactwoQty = document.getElementById("invactwo-qty");
     // AC three
     let acthree = document.querySelector(".acthree");
     let acthreeLoad = document.getElementById("acthree-load");
@@ -437,6 +445,22 @@
         aconeQty.disabled = true;
       }
     }
+    //inverter AC one
+    function selectInvAcone() {
+      invacone.classList.toggle("selected");
+      if (invacone.classList.contains("selected")) {
+        invaconeQty.classList.add("active");
+        invaconeLoad.classList.add("active", "load-active");
+        invaconeQty.value = 1;
+        invaconeQty.disabled = false;
+      } else {
+        invaconeQty.classList.remove("active");
+        invaconeLoad.classList.remove("active", "load-active");
+        invaconeQty.value = 0;
+        invaconeLoad.value = 0;
+        invaconeQty.disabled = true;
+      }
+    }
 
     // AC two
     function selectActwo() {
@@ -452,6 +476,23 @@
         actwoQty.value = 0;
         actwoLoad.value = 0;
         actwoQty.disabled = true;
+      }
+    }
+    
+    //invter AC two
+    function selectInvActwo() {
+      invactwo.classList.toggle("selected");
+      if (invactwo.classList.contains("selected")) {
+        invactwoQty.classList.add("active");
+        invactwoLoad.classList.add("active", "load-active");
+        invactwoQty.value = 1;
+        invactwoQty.disabled = false;
+      } else {
+        invactwoQty.classList.remove("active");
+        invactwoLoad.classList.remove("active", "load-active");
+        invactwoQty.value = 0;
+        invactwoLoad.value = 0;
+        invactwoQty.disabled = true;
       }
     }
 
@@ -599,10 +640,20 @@
     function totalAconeLoad() {
       aconeLoad.value = aconeQty.value * 1120;
     }
+    
+    //inverter AC one
+    function totalInvAconeLoad() {
+      invaconeLoad.value = invaconeQty.value * 1120;
+    }
 
     // AC two
     function totalActwoLoad() {
       actwoLoad.value = actwoQty.value * 1830;
+    }
+    
+    //inverter AC two
+    function totalInvActwoLoad() {
+      invactwoLoad.value = invactwoQty.value * 1830;
     }
 
     // AC three
